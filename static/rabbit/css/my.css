@@ -1,0 +1,160 @@
+
+
+.header{
+  height: 200px;
+  width: 100%;
+  min-width: 750px;
+  background: #ffffff;
+}
+
+
+
+.my{
+  width: 740px;
+  height: 100px;
+  position: relative;
+  margin: 0 auto;
+  padding-top: 80px;
+
+}
+
+.index{
+  padding-top: 30px;
+  padding-right: 30px;
+  font-size: 19px;
+  float: right;
+}
+
+.greetText{
+
+
+  position: relative;
+  float: left;
+  font-size: 35px;
+  color: #E07A60;
+  top: 10px;
+
+}
+
+.UserName{
+  width: 400px;
+  height: 57px;
+  position: relative;
+  float: left;
+  font-size: 25px;
+  color: #E07A60;
+  margin-top: 22px;
+}
+.sentence{
+  width: 740px;
+  height: 57px;
+  position: relative;
+  font-size: 18px;
+  color: #E07A60;
+  float: left;
+  margin-left: 100px;
+}
+
+a{
+  color: #000000 !important;
+  text-decoration:none !important;
+  position: relative;
+
+}
+.platform{
+  margin:0 auto;
+  width: 880px;
+  height: 80px;
+}
+
+
+.box{
+  margin:0 auto;
+  width: 100%;
+  min-width: 880px;
+
+}
+
+.box1{
+  margin:0 auto;
+  width: 880px;
+}
+
+.example{
+
+  min-width: 100px;
+  margin-top: 15px;
+  margin-left: 95px;
+  width: 100px;
+  height: 50px;
+  float: left;
+  box-shadow: 1px 1px 10px 0px #D3D3D3;
+  z-index: 3;
+  border-radius: 5px;
+  text-align: center;
+
+  filter:alpha(Opacity=80);-moz-opacity:1;opacity: 1;
+}
+.list{
+  margin:0 auto;
+  width: 780px;
+  height: 70px;
+  position: relative;
+  box-shadow: 1px 1px 10px 0px #D3D3D3;
+  z-index: 3;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.bookName{
+  font-size: 13px;
+  height: 20px;
+  margin: 0 auto;
+}
+
+.r{
+  text-align: center;
+  width: 194px;
+  float: left;
+  font-size: 16px;
+  line-height: 30px;
+
+
+}
+
+.del{
+  width: 194px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 13px;
+  cursor: pointer;
+
+}
+
+.box2{
+  margin:0 auto;
+  width: 880px;
+  height: 200px;
+}
+
+.platform2{
+  margin:0 auto;
+  width: 880px;
+  height: 80px;
+}
+
+.example2{
+ min-width: 100px;
+  margin-top: 15px;
+  margin-left: 95px;
+  width: 100px;
+  height: 50px;
+  float: left;
+  box-shadow: 1px 1px 10px 0px #D3D3D3;
+  z-index: 3;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 14px;
+
+  filter:alpha(Opacity=80);-moz-opacity:1;opacity: 1;
+}

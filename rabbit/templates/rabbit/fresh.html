@@ -1,0 +1,143 @@
+<script src="../../static/rabbit/filter/js/jquery.min.js"></script>
+<script src="../../static/rabbit/filter/js/jquery.filterizr.js"></script>
+<script>window.jQuery || document.write('<script src="js/jquery-1.11.0.min.js"><\/script>')</script>
+
+
+
+<div class="result" style="display: block;width:40%;">
+			<div class="filter">
+				<div class="filter-btn-group">
+                        <button type="button" id="top" class="filter-btn " data-filter="4" >
+							<span>综合Top10</span>
+						</button>
+                        <button type="button" id="dang" class="filter-btn"  data-filter="3">
+							<span>当当</span>
+						</button>
+						<button type="button" id="jing"  class="filter-btn " data-filter="1">
+							<span>京东</span>
+						</button>
+						<button type="button" id="tian" class="filter-btn "  data-filter="2">
+							<span>天猫</span>
+						</button>
+
+
+				</div>
+
+			</div>
+		</div>
+
+
+
+        <div id="booklitem" class="jq22" style="padding: 0px;height: 1005px;">
+            {% for bookname in booknames %}
+
+                     {% ifequal bookname.3 "../../static/rabbit/img/indexImg.png" %}
+                          <div class="filtr-item" data-category="{{ bookname.7 }}{{ bookname.9 }}">
+                                    <div class="pic">
+
+                                            <div> <a style="top: 0px" href="{{ bookname.6 }}"  target="_blank">
+                                               <img src="{{ bookname.3|default:"../../static/rabbit/img/default.jpg"}}" style="width:450px; height:400px;margin-left: 60px;margin-top: 70px;"></a></div>
+                                </div>
+                        </div>
+                     {% else %}
+                          <div class="filtr-item" data-category="{{ bookname.7 }}{{ bookname.9 }}">
+
+                                <div class="hot">
+                                    <div class="pic">
+
+                                            <div> <a style="top: 0px" href="{{ bookname.6 }}"  target="_blank">
+                                               <img src="{{ bookname.3|default:"../../static/rabbit/img/default.jpg"}}" style="width:130px; height:150px;"></a></div>
+
+
+                                            <div class="book-detail">
+                                                <div class="one"><div style="height: 10px;width: 100%"></div><div class="bookName">{{ bookname.1 }}</div><div class="price">{{ bookname.0 }}</div></div>
+
+                                                    <div class="two"><div class="pfm" >{{ bookname.5 }}</div><div class="ctt">{{ bookname.2 }}</div></div>
+
+                                                    <div class="three">
+                                                           <div class="store">{{ bookname.4 }} </div>
+                                                    </div>
+
+                                            </div>
+                                            <div class="addList" id="addList"><img class="addImg" var="{{ bookname.6}}" var2="{{ bookname.7 }} " var3="{{ bookname.0 }}"   var4="{{ bookname.1 }}"  src="../../static/rabbit/img/twoAdd.png" style="width: 35px;height: 35px;"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                     {% endifequal %}
+
+            {% endfor%}
+
+
+
+
+
+
+            <script type="text/javascript">
+                 $(function() {
+                     $('.jq22').filterizr();
+
+                     $("button").on('click', function() {
+                     $(this).toggleClass('filter-btn-active').siblings().removeClass('filter-btn-active');
+                    });
+
+                 });
+
+
+                 $(document).ready(function(){
+                        document.getElementById('top').click();
+                        document.getElementById('dang').click();
+                        document.getElementById('jing').click();
+                        document.getElementById('tian').click();
+                        document.getElementById('top').click();
+                 });
+
+                 var stay;
+                 var url;
+                 var platform;
+                 var price;
+                 var bookname;
+
+                 $(".addImg").click(function(){
+                     if ($(this).attr("src")=="../../static/rabbit/img/twoAdd.png") {
+                         is_show($("#bookID").val());
+                         stay = $(this);
+                         url=$(this).attr("var");
+                         platform=$(this).attr("var2");
+                         price=$(this).attr("var3");
+                         bookname=$(this).attr("var4");
+                     }
+
+                 });
+
+                 function aaa()
+                 {
+                     is_hide();
+                     $.get('addBook',{'bookUrl':url,'platform':platform,'price':price,'bookname':bookname},     //post函数到后端
+                        function(data,status){              //回调函数
+                         if (data=="未登录")
+                         {
+                             window.location.href="/login";
+                             return false;
+                         }
+                         else{
+                              $("#addResult").html(data);
+                         }
+
+                    });
+                      stay.attr("src","../../static/rabbit/img/add.png");
+                 }
+
+                 function bbb()
+                 {
+                     is_hide();
+                 }
+
+                function is_hide(){ $(".ensure").animate({"top":"-40%"}, 300) }
+		        function is_show(){ $(".ensure").show().animate({"top":"40%"},300)}
+
+             </script>
+
+        </div>
+
+

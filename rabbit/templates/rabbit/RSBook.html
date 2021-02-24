@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    {% load static %}
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title>{{ bookname }} - 搜语</title>
+	<link rel="shortcut icon" href="{% static 'rabbit/img/birds2.png' %}">
+	<link rel="stylesheet" type="text/css" href="../../static/rabbit/css/search.css">
+    <link rel="stylesheet" type="text/css" href="../../static/rabbit/css/loaders.css">
+	<link rel="stylesheet" type="text/css" href="../../static/rabbit/css/button.css">
+	<link href="../../static/rabbit/filter/filter/filter.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="../../static/rabbit/css/hover.css">
+	<!--[if IE]>
+		<script src="http://libs.baidu.com/html5shiv/3.7/html5shiv.min.js"></script>
+	<![endif]-->
+	<script src="http://www.jq22.com/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+
+</head>
+<body>
+
+
+
+
+	<div class="header">
+
+
+		<div class="my">
+
+                    <div class="menuBar">
+                        {% if request.session.is_login %}
+                                    <a class="menuBar_tag_a" href="/logout">登出</a>
+                        {% else %}
+                                    <a class="menuBar_tag_a" href="/login">登录</a>
+                        {% endif %}
+                    </div>
+                    <div class="menuBar">
+					    <a class="menuBar_tag_a" href="/my">书单</a>
+                    </div>
+	    </div>
+
+        <div class="iorn">
+                <a href="{% url 'index' %}"><div class="iornHref"></div><a>
+        </div>
+	</div>
+
+
+
+
+	<div class="detail" id="detail">
+			<div class="loader2">
+
+                    <div class="loader-inner ball-clip-rotate-multiple">
+
+                          <div></div>
+
+                          <div></div>
+
+                    </div>
+            </div>
+	</div>
+
+
+
+
+
+
+<a href="https://book.douban.com/annual/2017#0" target="_blank">
+	<div class="douban">
+		<div class="doubanImg"><img src="../../static/rabbit/video/s.png" style="width:450px; height:255px;"></img></div>
+
+				<div class="doubanImg2"><img src="../../static/rabbit/video/a.png" style="width:255px; height:255px;"></img></div>
+
+		<video   width="450px" height="255px"  loop autoplay >
+				<source src="../../static/rabbit/video/video.mp4" type="video/mp4">
+		</video>
+	</div>
+</a>
+
+
+
+   <!-- <div class="activity">     备用div
+
+	</div>
+	-->
+
+
+
+
+
+        <div class="page-container">
+			<input type="text" id="bookname" name="username" class="username" placeholder="" autocomplete="off" onkeydown="if(event.keyCode==13) searchToggle()" value={{ bookname }}>
+				<div class="searchButton" onclick="searchToggle();"><img src="../../static/rabbit/img/search.png" style="width:30px; height:30px;"></img></div>
+		</div>
+
+
+        <div class="list" id="list">
+            <div class="loader">
+
+                    <div class="loader-inner ball-clip-rotate-multiple">
+
+                          <div></div>
+
+                          <div></div>
+
+                    </div>
+            </div>
+
+		</div>
+
+        <div id="ensure" class="ensure" style="display: none ;">
+            <div class="ensureText">确认加入书单？</div>
+            <div class="but" id="button1" var="1" onclick="aaa()">确认</div>
+            <div class="but" id="button2" var="2" onclick="bbb()">取消</div>
+        </div>
+
+        <!--<div id="addResult" class="addResult">
+
+        </div>-->
+
+
+
+
+
+	<script type="text/javascript">
+        function searchToggle(){
+            var bookname=document.getElementById("bookname").value;
+            bookname=bookname.replace(/\s+/g,"");
+            if(bookname=="")
+                return;
+            var bookurl="2"+'&'+bookname;
+            window.location.href=bookurl;
+        }
+
+        $(function() {
+        var url=window.location.href;
+        $.get(url,{'flag':"1"},     //post函数到后端
+        function(data,status){              //回调函数
+             $("#list").html(data);      //将id为pstable的标签的html替换为返回的data
+        });
+
+        url="doubanInfo";
+        var bookname=$('#bookname').val();
+        $.get(url,{'bookname':bookname},     //post函数到后端
+            function(data,status){              //回调函数
+                 $("#detail").html(data);      //将id为pstable的标签的html替换为返回的data
+        });
+
+
+
+            $("button").on('click', function() {
+                $(this).toggleClass('filter-btn-active').siblings().removeClass('filter-btn-active');
+            });
+
+				//var cont=document.getElementById("content");			//根据不同的内容调用不同的样式，因为有些信息会是缺失，所以缺失就不调用
+				//var len=cont.innerText.length;
+
+				//var s=cont.innerText.substr(len-2,2);
+				//if("评论"==s)
+				//{
+					//$("#content").css("front-siz","2px");
+					//$("#content").css("background","red");
+					//$("#content").css("color","white");
+					//$("#content").css("width","100px");
+				//}
+		});
+
+    </script>
+
+
+</body>
+</html>

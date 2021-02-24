@@ -1,0 +1,41 @@
+html,body {height: 100%;}
+body {padding: 0px; margin:0px; background:url() ; background-position: center; background-size: cover; background-attachment: fixed; background-repeat: no-repeat;}
+
+
+
+.header{
+  height: 100px;
+  box-shadow: 0 0 50px -20px ;
+  width: 100%;
+  min-width: 1300px;
+  background: #ffffff;
+}
+
+.iorn{
+  background:url(../img/birds2.png) ;background-position: 30px;  background-repeat: no-repeat;background-size:110px 110px;
+  height: 100px;
+}
+
+.my{
+    position: absolute;
+    width: 100%;
+    min-width: 1300px;
+    top: 35px;
+    font-size: 18px;
+    text-align: right;
+    left: -30px;
+}
+
+.iornHref{
+  position: absolute;
+  height:100px;
+  width: 280px;
+  cursor: pointer;
+}
+
+a{
+  color: #000000 !important;
+  text-decoration:none !important;
+  position: relative;
+  top: -7px;
+}

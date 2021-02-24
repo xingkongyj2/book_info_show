@@ -1,0 +1,222 @@
+
+body {padding: 0px;
+    margin:0px;
+    background:#ffffff ;
+
+}
+
+
+
+.header{
+  height: 100px;
+  box-shadow: 1px 1px 5px 0px #D3D3D3;
+  width: 100%;
+  min-width: 1300px;
+}
+
+.menuBar{
+    width: 47px;
+    height: 32px;
+    font-size: 17px;
+    float: right;
+    line-height: 32px;
+    text-align: center;
+    margin-left: 8px;
+    cursor: pointer;
+
+}
+
+.menuBar_tag_a{
+    color: #000000;
+}
+
+.iorn{
+  background:url(../img/birds2.png) ;background-position: 30px;  background-repeat: no-repeat;background-size:65px 65px;
+  height: 100px;
+}
+
+.iornHref{
+  position: absolute;
+  height:100px;
+  width: 280px;
+  cursor: pointer;
+}
+
+.my{
+    position: absolute;
+    width: 100%;
+    min-width: 1300px;
+    top: 35px;
+    font-size: 18px;
+    text-align: right;
+    left: -30px;
+}
+
+a{
+
+  text-decoration:none !important;
+  position: relative;
+  top: 0px;
+}
+
+
+
+.page-container {
+    position:relative;
+    top: 5px;
+    height: 90px;
+    width: 400px;
+    margin: 0 auto;
+
+}
+
+input {
+    width: 380px;
+    height: 37px;
+	line-height:37px;
+    margin-top: 37px;
+    padding: 0 10px;
+
+
+
+    border: 1px solid rgba(255,255,255,.15);
+
+    box-shadow: 1px 1px 5px 0px #D3D3D3;
+
+    font-size: 15px;
+    color: black;
+    border-radius: 4px;
+}
+
+input:-moz-placeholder { color: #fff; }
+input:-ms-input-placeholder { color: #fff; }
+input::-webkit-input-placeholder { color: #fff; }
+
+input:focus {
+    outline: none;
+}
+
+input::-webkit-input-placeholder{
+      color:black;
+      opacity: 0.5;
+      font-size: 13px;
+}
+
+.searchButton {
+    width: 35px;
+    height: 35px;
+    position:relative;
+    top: -35px;
+    left: 370px;
+      cursor: pointer;
+}
+
+
+
+.detail{
+  width: 350px;
+  position: absolute;
+  top:145px;
+  left: 930px;
+
+
+}
+
+
+
+.activity{
+  width: 100%;
+  height: 115px;
+    position: relative;
+    background: #FFFFFF;
+  border-radius: 30px;
+    margin-bottom: 10px;
+    box-shadow: 1px 1px 10px 0px #D3D3D3;
+}
+
+.activityImg{
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px 0px #D3D3D3;
+}
+
+
+
+
+.ebookSource{
+  width: 100%;
+  height: 360px;
+  position: relative;
+
+    margin-top: 40px;
+    background: url("../img/activity/back.png");background-repeat: no-repeat;
+    background-size: 100%;
+
+}
+
+
+.itemBooks{
+    position: relative;
+    width:600px;
+
+    top:30px;
+    margin: 0 auto;
+}
+
+.itemBook{
+    position: relative;
+    width:100%;
+    height: 40px;
+    box-shadow: 1px 1px 5px 0px #D3D3D3;
+    border-radius: 1px;
+    margin-bottom: 20px;
+}
+
+.bookName{
+    font-size: 14px;
+    margin-left: 20px;
+    width: 480px;
+    line-height: 40px;
+    float: left;
+    color: #E07A60;
+}
+
+.platform{
+    font-size: 14px;
+
+    line-height: 20px;
+    float: left;
+    margin-top: 10px;
+    border-radius: 3px;
+    padding-left: 4px;
+    padding-right: 4px;
+    color: #ffffff;
+
+}
+
+.text{
+    position: relative;
+    width: 80%;
+    height: 30px;
+    float: left;
+    top: 20px;
+    left: 20px;
+    color: #000000;
+     font-weight: 800;
+}
+
+.ebookSourcePlatfrom{
+    position: relative;
+    width: 30%;
+    height: 110px;
+    top: 30px;
+    float: left;
+    color: #000000;
+    text-align: center;
+    font-weight: 500;
+    font-size: 19px;
+    margin-left: 7px;
+}
+
+a{
+    cursor: pointer;
+}

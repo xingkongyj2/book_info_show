@@ -1,0 +1,113 @@
+
+<!doctype html>
+<html lang="zh">
+<head>
+    {% load static %}
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title>搜语-搜索如此简单</title>
+	<link rel="shortcut icon" href="{% static 'rabbit/img/birds2.png' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'rabbit/css/index.css' %}">
+	<link rel="stylesheet" href="../../static/rabbit/select/css/style.css">
+	<link rel="stylesheet" href="../../static/rabbit/select/css/tastySelect.css">
+	<link rel="stylesheet" href="../../static/rabbit/css/buttonCss.css">
+
+</head>
+<body>
+
+
+	<header class="htmleaf-header">
+		<div class="my">
+
+					<a href="/my">&nbsp;书单</a></img>
+
+	    </div>
+        <div class="logo">
+				<a href="/"><div class="logoHref"></div><a>
+		</div>
+	</header>
+
+	<div>
+			<div class="content" style="display:none">
+                <ul class="styling">
+                <li><input type="radio" checked data-class='jelly' name="styling" id="r1"></li>
+			</div>
+
+	</div>
+
+	<div class="iorn">
+			<div class="iornBox"><a href="/my"><div class="iornMy"></div></a></div>
+	</div>
+
+		<div class="content">
+			<select name="select" id="tastySelect" multiple>
+			<option value="1">新书</option>
+			<option value="2">二手书</option>
+			<option value="3">电子书</option>
+			</select>
+		</div>
+
+
+          <section class="container">
+
+            <div class="search-wrapper active">
+                <div class="input-holder">
+                    <input id="bookname" type="text" class="search-input" placeholder="搜索如此简单..." onkeydown="if(event.keyCode==13) searchToggle();"/>
+                    <button id="" class="search-icon" onclick="searchToggle();"><span></span></button>
+                </div>
+
+                <div id="result" class="result-container">
+
+                </div>
+            </div>
+	</section>
+
+
+
+
+
+	<div class="hot">
+		<div>
+				<a href="/about">
+
+				</a>
+		</div>
+	</div>
+
+
+
+	<script src='../../static/rabbit/select/js/tastySelect.min.js'></script>
+	<script src='../../static/rabbit/select/js/common.js'></script>
+
+
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+	<script src="http://www.jq22.com/jquery/jquery-ui-1.11.0.js"></script>
+
+	<script src="http://www.jq22.com/jquery/1.11.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/jquery-1.11.0.min.js"><\/script>')</script>
+	<script type="text/javascript">
+
+
+        function searchToggle(){
+            var bookname=document.getElementById("bookname").value;
+            var type=document.getElementById("tastySelect").value;
+            if(type=="")
+            {
+                _html = "请先选择搜索类型...";
+                $("#result").html('<span>' + _html + '</span>');
+                $("#result").fadeIn(100);
+                return;
+            }
+            bookname=bookname.replace(/\s+/g,"");
+            if(bookname=="")
+                return;
+
+            var url=type+'&'+bookname;
+            window.location.href=url;
+        }
+
+
+    </script>
+</body>
+</html>

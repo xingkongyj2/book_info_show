@@ -1,0 +1,62 @@
+
+        <div  class="itemBooks">
+         {% for bookname in booknames %}
+             <a href="{{ bookname.1 }} " target="_blank">
+                 <div  class="itemBook">
+                     <div class="bookName" >{{ bookname.0 }}</div>
+                    <div class="platform">{{ bookname.2 }}</div>
+
+                </div>
+             </a>
+         {% endfor %}
+        </div>
+        <br/><br/><br/><br/><br/>
+
+        <script type="text/javascript">
+
+
+
+
+            $(document).ready(function(){
+                       var result='';
+                        $(".platform").each(function(){
+                            platformText=$(this).text();
+
+                            if(platformText=="Readfree")
+                                 $(this).css('background','#000000');
+                            else if (platformText == "书语者")
+                                $(this).css('background','#7b74fb');
+                            else if (platformText == "skebooks")
+                                $(this).css('background','#f64d60');
+                            else if (platformText == "bookset")
+                                $(this).css('background','#df65ef');
+                            else if (platformText == "kindle178")
+                                $(this).css('background','#4C4F71');
+                            else if (platformText == "奇异书屋")
+                                $(this).css('background','#F08472');
+                            else if (platformText == "sobooks")
+                                $(this).css('background','#df65ef');
+                            else if (platformText == "书多多")
+                                $(this).css('background','#36c61b');
+                            else if (platformText == "我的小书屋")
+                                $(this).css('background','#9AA0C5');
+
+                        });
+
+
+                 });
+
+
+
+        </script>
+
+
+
+
+
+
+
+
+
+
+

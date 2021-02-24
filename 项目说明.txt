@@ -1,0 +1,121 @@
+注意：不用APP下Templates目录中同名的.html文件会造成冲突
+解决：在APP下Templates目录下新创建以APP名为名字的目录，将html放进去
+
+django-admin startproject myblog 新建项目
+
+
+manage.py
+	与项目进行命令行交互的命令行工具入口  python3 manage.py查看命令
+[auth]
+    changepassword
+    createsuperuser
+
+[contenttypes]
+    remove_stale_contenttypes
+
+[django]
+    check
+    compilemessages
+    createcachetable
+    dbshell
+    diffsettings
+    dumpdata
+    flush
+    inspectdb
+    loaddata
+    makemessages
+    makemigrations
+    migrate
+    sendtestemail
+    shell
+    showmigrations
+    sqlflush
+    sqlmigrate
+    sqlsequencereset
+    squashmigrations
+    startapp
+    startproject
+    test
+    testserver
+
+[sessions]
+    clearsessions
+
+[staticfiles]
+    collectstatic
+    findstatic
+    runserver
+
+python manage.py runserver 1.2.2.2:2222   修改端口
+control c 关闭服务器
+
+
+wsgi.py 
+    python服务器网关接口：python应用与web服务器之间的结构
+
+
+创建应用
+    python3 manage.py startapp blog  
+    *把blog加入INSTALLED_APPS
+
+应用文件
+    migrations文件：数据移迁移模块
+    创建之后要数据迁移  1 python3 manage.py makemigrations app名（可选） 2 python3 manage.py migrate
+    admin.py:后台管理配置
+    models.py:数据模块，与数据库有关，使用ORM框架
+    tests.py:脚本测试模块
+    views.py:执行响应的代码所在的模块
+     
+
+
+dgango后台模版
+    python3 manage.py createsuperuser  创建超级用户
+    xingkong  xingkong22
+
+表单都需要加{% csrf_token %}
+
+过滤器
+
+
+
+
+
+$.post("这里是后台处理页面地址例：（url.php）",{UserName:UserName，UserPwd:UserPwd},function(result){
+    //这里对返回结果做处理
+    console.log(result);
+  });
+
+
+views拆分后  函数倒入from jingdong import getHtml   在京东文件中引用getHtml函数
+
+
+
+
+
+
+
+
+
+
+model
+    默认每个字段不能为空
+    primary_key=True     pk
+    null=False
+    default=0
+
+
+    Field
+        CharField
+        EmailField
+        FileField
+        ImageField
+        FloatField
+        IntegerField
+        TextField
+        URLField
+
+
+
+uwsgi --ini uwsgi.ini
+
+nginx -s stop

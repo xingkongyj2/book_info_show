@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        {% load static %}
+        <meta charset="utf-8">
+        <title>注册 - 搜语</title>
+		<link rel="shortcut icon" href="{% static 'rabbit/img/birds2.png' %}">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="{% static 'rabbit/css/loginStyle.css' %}">
+
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    </head>
+
+    <body>
+    		<div class="leftPage">
+
+	       	</div>
+    		<div class="rightPage">
+			      <div class="iorn">
+			            <div class="text">Welcome </div>
+			      </div>
+
+			        <div class="page-container">
+
+			            <form action="register" method="post">
+                            {% csrf_token %}
+							<div>
+								<input type="text" name="username" class="username" placeholder="username" autocomplete="off"/>
+							</div>
+                            <div>
+								<input type="text" name="email" class="email" placeholder="email" autocomplete="off"/>
+							</div>
+			                <div>
+								<input type="password" name="password" class="password" placeholder="password" oncontextmenu="return false" onpaste="return false" />
+			                </div>
+                            <div id="submit1"  onclick="submitFn()">Login</div>
+                            <input id="submit2" type="submit" style="display: none">
+			                <div class="alert">
+					  			{{ message }}
+							</div>
+			                <div class="connect">
+
+			                 </div>
+			            </form>
+			        </div>
+	       </div>
+	       <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script>
+			var u = $("input[name=username]");
+			var e = $("input[name=email]");
+			var p = $("input[name=password]");
+
+
+			var flag=0;
+			function submitFn(){
+				if(u.val() == '' || p.val() =='')
+				{
+					$(".alert").html("用户名或密码不能为空");
+					return false;
+				}
+				else{
+					var reg =/^.{4,16}$/;
+					var reg2 =/^[a-zA-Z0-9]{6,16}$/;
+					var reg3 =/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
+					if(!reg.exec(u.val()))
+					{
+						$(".alert").html("用户名在4～16位");
+						return false;
+					}
+					if(!reg3.exec(e.val()))
+					{
+						$(".alert").html("请输入正确的邮箱");
+						return false;
+					}
+					if(!reg2.exec(p.val()))
+					{
+						$(".alert").html("密码由6到16位字母，数字组成");
+						return false;
+					}
+
+				}
+				$("#submit2").click();
+        }
+
+        function sleep(numberMillis) {
+			var now = new Date();
+			var exitTime = now.getTime() + numberMillis;
+			while (true) {
+			now = new Date();
+			if (now.getTime() > exitTime)
+			return;
+			    }
+		}
+
+
+		</script>
+    </body>
+
+</html>
+
+

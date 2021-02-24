@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>登录 - 旅行兔</title>
+		<link rel="shortcut icon" href="../img/my2.png">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/supersized.css">
+        <link rel="stylesheet" href="css/style.css">
+
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    </head>
+
+    <body oncontextmenu="return false">
+
+      <div class="iorn">
+            <div class="iornBox"><a href="my.html"><div class="iornMy"></div></a></div>
+      </div>
+        <div class="page-container">
+            <form action="" method="post">
+				<div>
+					<input type="text" name="username" class="username" placeholder="用户名" autocomplete="off"/>
+				</div>
+                <div>
+					<input type="password" name="password" class="password" placeholder="密码" oncontextmenu="return false" onpaste="return false" />
+                </div>
+                <div id="submit" type="button">登录</div>
+                <div id="submit" type="button">注册</div>
+            </form>
+            <div class="connect">
+
+				<p style="margin-top:20px;"></p>
+            </div>
+        </div>
+
+		<div class="alert" style="display:none">
+
+  			<div class="alert_con">
+      				<p id="ts"></p>
+      				<p style="line-height:70px"><div class="btn">OK</div></p>
+  			</div>
+		</div>
+
+        <!-- Javascript -->
+		<script src="http://apps.bdimg.com/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
+        <script src="js/supersized.3.2.7.min.js"></script>
+        <script src="js/supersized-init.js"></script>
+		<script>
+		$(".btn").click(function(){
+			is_hide();
+		})
+		var u = $("input[name=username]");
+		var p = $("input[name=password]");
+		$("#submit").live('click',function(){
+			if(u.val() == '' || p.val() =='')
+			{
+				$("#ts").html("用户名或密码不能为空");
+				is_show();
+				return false;
+			}
+			else{
+				var reg = /^[0-9A-Za-z]+$/;
+				if(!reg.exec(u.val()))
+				{
+					$("#ts").html("用户名错误");
+					is_show();
+					return false;
+				}
+        window.location.href = "../../../templates/rabbit/index.html";
+			}
+		});
+		window.onload = function()
+		{
+			$(".connect p").eq(0).animate({"left":"0%"}, 600);
+			$(".connect p").eq(1).animate({"left":"0%"}, 400);
+		}
+		function is_hide(){ $(".alert").animate({"top":"-40%"}, 300) }
+		function is_show(){ $(".alert").show().animate({"top":"45%"}, 300) }
+		</script>
+    </body>
+
+</html>

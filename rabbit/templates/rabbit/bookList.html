@@ -1,0 +1,94 @@
+
+                {% for allUnivList in allUnivLists %}
+                    <div class="list">
+
+                            <div class="r">
+                                <div class="bookName"><a target="_blank" href="{{ allUnivList.0.2 }}">{{ allUnivList.0.0 }}</a></div>
+                                <div style="height:30px;">{{ allUnivList.0.1 }}</div>
+                                {% ifequal allUnivList.0.0 "-" %}
+                                     <div class="del"></div>
+                                {% else %}
+                                     <div class="del" var="{{ allUnivList.0.3 }}">删除</div>
+                                {% endifequal %}
+                            </div>
+
+                             <div class="r">
+                                 <div class="bookName"><a target="_blank" href="{{ allUnivList.1.2 }}">{{ allUnivList.1.0 }}</a></div>
+                                 <div>{{ allUnivList.1.1 }}</div>
+                                 {% ifequal allUnivList.1.0 "-" %}
+                                     <div class="del"></div>
+                                {% else %}
+                                     <div class="del" var="{{ allUnivList.1.3 }}">删除</div>
+                                {% endifequal %}
+                             </div>
+
+                             <div class="r">
+                                 <div class="bookName"><a  target="_blank" href="{{ allUnivList.2.2 }}">{{ allUnivList.2.0 }}</a></div>
+                                 <div>{{ allUnivList.2.1 }}</div>
+                                 {% ifequal allUnivList.2.0 "-" %}
+                                     <div class="del"></div>
+                                {% else %}
+                                     <div class="del" var="{{ allUnivList.2.3 }}">删除</div>
+                                {% endifequal %}
+                             </div>
+
+                             <div class="r">
+                                 <div class="bookName"><a target="_blank" href="{{ allUnivList.3.2 }}">{{ allUnivList.3.0 }}</a></div>
+                                 <div>{{ allUnivList.3.1 }}</div>
+                                 {% ifequal allUnivList.3.0 "-" %}
+                                     <div class="del"></div>
+                                {% else %}
+                                     <div class="del" var="{{ allUnivList.3.3 }}">删除</div>
+                                {% endifequal %}
+                             </div>
+
+                    </div>
+			    {% endfor %}
+
+
+				<div class="box2">
+					<div class="platform2">
+
+								<a href="https://cart.jd.com/cart.action" target="_blank">
+
+										<div class="example2">
+                                                 <div class="space"style="height: 5px;width: 100px;"></div>
+												{{ lenths.0 }}本:{{ total.0 }}<br/>去京东
+										</div>
+								</a>
+								<a href="http://shopping.dangdang.com/shoppingcart/shopping_cart.aspx?product_ids=0&referer=null&prev_referer=null" target="_blank">
+										<div class="example2">
+                                            <div class="space"style="height: 5px;width: 100px;"></div>
+												{{ lenths.1 }}本:{{ total.1 }}<br/>去当当
+										</div>
+								</a>
+								<a href="http://www.bookschina.com/shopcar/shoppingcart.aspx" target="_blank">
+										<div class="example2">
+                                            <div class="space"style="height: 5px;width: 100px;"></div>
+												{{ lenths.2 }}本:{{ total.2 }}<br/>不支持
+										</div>
+								</a>
+								<a href="https://www.amazon.cn/gp/cart/view.html/ref=nav_cart" target="_blank">
+										<div class="example2">
+                                            <div class="space"style="height: 5px;width: 100px;"></div>
+												{{ lenths.3 }}本:{{ total.3 }}<br/>去孔夫子
+										</div>
+								</a>
+					</div>
+				</div>
+
+
+<script type="text/javascript">
+
+
+      $(".del").click(function(){
+             ID=$(this).attr("var");
+
+             $.get('delete',{'ID':ID},     //post函数到后端
+                    function(data,status) {              //回调函数
+                            $("#lists").html(data);
+            });
+
+      });
+
+</script>
